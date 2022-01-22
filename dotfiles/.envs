@@ -1,0 +1,11 @@
+## prompt ##
+export PS1='________________________________________________________________________________\n\u@\h:\w\n';
+## envs ##
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export EDITOR=/usr/bin/nano
+export DOCKER_HOST='ssh://docker@10.0.0.30'
+export GIT_AUTHOR_NAME='Andy Escolastico'
+export GIT_AUTHOR_EMAIL='aesubs@icloud.com'
+export GIT_COMMITTER_NAME='Andy Escolastico'
+export GIT_COMMITTER_EMAIL='aesubs@icloud.com'
+export EMAIL='aesubs@icloud.com'

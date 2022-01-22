@@ -1,0 +1,49 @@
+# python project prep
+pyprep() {
+  # create the virtual environment
+  intpy -m venv .venv
+  # activate it
+  source .venv/bin/activate
+  # install dependencies in the virtual env
+  .venv/bin/python -m pip install -r requirements.txt
+}
+
+# sidecar
+sidecar() {
+  if pgrep -x 'System Preferences' >/dev/null
+  then
+      killall 'System Preferences'
+  fi
+  osascript -e '
+  tell application "System Preferences"
+  activate
+  reveal pane id "com.apple.preference.sidecar"
+  delay 1
+
+  tell application "System Events" to click first menu button of first window of application process "System Preferences" of application "System Events"
+  tell application "System Events" to click first menu item of first menu of first menu button of first window of application process "System Preferences" of application "System Events"
+
+  quit
+  end tell'
+}
+
+# simple calculator
+calc() {
+	local result=""
+	result="$(printf "scale=10;%s\\n" "$*" | bc --mathlib | tr -d '\\\n')"
+	#						└─ default (when `--mathlib` is used) is 20
+
+	if [[ "$result" == *.* ]]; then
+		# improve the output for decimal numbers
+		# add "0" for cases like ".5"
+		# add "0" for cases like "-.5"
+		# remove trailing zeros
+		printf "%s" "$result" |
+			sed -e 's/^\./0./'  \
+			-e 's/^-\./-0./' \
+			-e 's/0*$//;s/\.$//'
+	else
+		printf "%s" "$result"
+	fi
+	printf "\\n"
+}
