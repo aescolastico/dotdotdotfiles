@@ -8,7 +8,7 @@ brow_pkgs=(
     "azure-functions-core-tools@4"
 )
 
-brew tap azure/functions
+brow tap azure/functions
 
 for i in "${brow_pkgs[@]}"
 do
