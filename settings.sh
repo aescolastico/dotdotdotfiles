@@ -3,7 +3,7 @@
 ###----------------###
 
 ## variables ##
-mac_name="mini"
+mac_name="mac"
 
 ## finder ##
 
