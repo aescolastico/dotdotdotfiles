@@ -6,6 +6,8 @@ pyprep() {
   source .venv/bin/activate
   # install dependencies in the virtual env
   .venv/bin/python -m pip install -r requirements.txt
+  # point lw to venv
+  export languageWorkers:python:defaultExecutablePath=.venv/bin/python
 }
 
 # sidecar
@@ -46,4 +48,8 @@ calc() {
 		printf "%s" "$result"
 	fi
 	printf "\\n"
+}
+
+mdl () {
+  you-get --output-dir ~/Desktop/memes --no-caption "$1"
 }

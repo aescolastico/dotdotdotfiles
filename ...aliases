@@ -4,16 +4,21 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias countryroads='cd ~'
+alias reload='/bin/bash'
+
+# Get Stitches
+alias snitch='git blame'
 
 # Software Binaries
-alias intpy='/usr/local/bin/python3'
-alias intpip='/usr/local/bin/pip3'
+alias python='/usr/local/bin/python3'
+alias intpy='arch -x86_64 /usr/local/bin/python3.9'
+alias intpip='arch -x86_64 /usr/local/bin/pip3.9'
 
 alias vpy='.venv/bin/python3'
 alias vpip='.venv/bin/pip3'
 
-alias brow='/usr/local/bin/brew'
 alias brew='/opt/homebrew/bin/brew'
+alias brow='arch -x86_64 /usr/local/bin/brew'
 alias func='arch -x86_64 /usr/local/bin/func'
 
 # Always enable colored `grep` output

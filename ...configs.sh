@@ -34,7 +34,7 @@ git config --global commiter.email "aesubs@icloud.com"
 ### duti file asc. ###
 ###----------------###
 
-vsCext=( ".md" ".c" ".js" ".conf" ".cfg" ".ini" ".json" ".jsp" ".js" ".java" ".scss" ".css" ".sql" ".sqlite" ".mysql" ".txt" ".less" ".src" ".cmd" ".hta" ".lua" ".m" ".m4" ".h" ".php" ".pl" ".pm" ".py" ".rb" ".vbs" ".tlc" ".bat" ".asm" ".cgi" ".rss" ".xml" ".atom" ".csv" ".bak" ".cnf" ".log" ".asc" ".diff" ".temp" ".tmp" ".class" ".yml" ".sh" ".ps1" ".tf" ".tfvars" ".go" )
+vsCext=( ".md" ".sh" ".c" ".js" ".conf" ".cfg" ".ini" ".json" ".jsp" ".js" ".java" ".scss" ".css" ".sql" ".sqlite" ".mysql" ".txt" ".less" ".src" ".cmd" ".hta" ".lua" ".m" ".m4" ".h" ".php" ".pl" ".pm" ".py" ".rb" ".vbs" ".tlc" ".bat" ".asm" ".cgi" ".rss" ".xml" ".atom" ".csv" ".bak" ".cnf" ".log" ".asc" ".diff" ".temp" ".tmp" ".class" ".yml" ".sh" ".ps1" ".tf" ".tfvars" ".go" )
 
 for i in "${vsCext[@]}"
 do
