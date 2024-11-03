@@ -5,13 +5,11 @@ pyprep() {
   prj_name="${PWD##*/}"
   prj_ve_dir="${rt_ve_dir}/${prj_name}"
   # create the virtual environment
-  intpy -m venv $prj_ve_dir
+  python3 -m venv $prj_ve_dir
   # activate it
   source $prj_ve_dir/bin/activate
   # install dependencies in the virtual env
   $prj_ve_dir/bin/python -m pip install -r requirements.txt
-  # point lw to venv
-  export languageWorkers:python:defaultExecutablePath="$prj_ve_dir/bin/python"
 }
 
 # sidecar
@@ -55,5 +53,25 @@ calc() {
 }
 
 mdl () {
-  you-get --output-dir ~/Desktop/memes --no-caption "$1"
+  you-get --output-dir ~/iCloud/memes --no-caption "$1"
+}
+
+nprj() {
+  if [ -z "$1" ]; then
+    echo "Please provide a repository URL."
+    return 1
+  fi
+
+  repo_name=$(basename -s .git "$1")
+
+  target_dir="$HOME/Projects/$repo_name"
+
+  git clone "$1" "$target_dir"
+
+  if [ $? -ne 0 ]; then
+    echo "Failed to clone repository."
+    return 1
+  fi
+
+  code "$target_dir"
 }

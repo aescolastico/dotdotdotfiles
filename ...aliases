@@ -10,7 +10,6 @@ alias reload='/bin/bash'
 alias snitch='git blame'
 
 # Software Binaries
-alias python='/usr/local/bin/python3'
 alias intpy='arch -x86_64 /usr/local/bin/python3.9'
 alias intpip='arch -x86_64 /usr/local/bin/pip3.9'
 
@@ -32,3 +31,6 @@ alias privkey="cat ~/.ssh/id_rsa | pbcopy | echo '=> Private key copied to paste
 
 # Paths
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# the fuck
+eval $(thefuck --alias)

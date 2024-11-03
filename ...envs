@@ -9,3 +9,6 @@ export GIT_AUTHOR_EMAIL='aesubs@icloud.com'
 export GIT_COMMITTER_NAME='Andy Escolastico'
 export GIT_COMMITTER_EMAIL='aesubs@icloud.com'
 export EMAIL='aesubs@icloud.com'
+export PATH=$PATH:$HOME/go/bin
+export IDF_TARGET=esp32c6
+export IDF_CCACHE_ENABLE=1
