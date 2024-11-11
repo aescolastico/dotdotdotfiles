@@ -26,9 +26,6 @@ xcode-select --install > /dev/null 2>&1 &
 # install rosetta 
 softwareupdate --install-rosetta
 
-# clone or pull repo ??
-git pull https://github.com/aescolastico/dotfiles.git > /dev/null 2>&1 &
-
 ###--------------###
 ### bash_profile ###
 ###--------------###
