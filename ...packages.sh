@@ -145,6 +145,7 @@ vsc_pkgs=(
     "ms-azuretools.vscode-docker"
     "ms-vscode-remote.remote-containers"
     "ms-vscode-remote.remote-ssh"
+    "ms-toolsai.datawrangler"
 )
 
 for i in "${vsc_pkgs[@]}"
