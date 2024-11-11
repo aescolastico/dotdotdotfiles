@@ -20,18 +20,6 @@ sudo -v
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$script_dir"
 
-# install xcode cli
-xcode-select --install > /dev/null 2>&1 &
-
-# install rosetta 
-softwareupdate --install-rosetta
-
-###--------------###
-### bash_profile ###
-###--------------###
-cp -a ./dotfiles/. ~
-
-
 ###----------###
 ### settings ###
 ###----------###
