@@ -8,6 +8,7 @@ sudo -v
 
 ## run bootstrap
 ## configure apple ID, touch ID, find my
+## enable sync doc and desktop wi iCloud
 ## set favorites in finder
 ## set control center in menu bar
 ## enable safari extensions
@@ -23,9 +24,9 @@ cd "$script_dir"
 ###----------###
 ### settings ###
 ###----------###
-./settings.sh&
+./...settings.sh&
 
 ###----------###
 ### packages ###
 ###----------###
-./packages.sh&
+./...packages.sh&

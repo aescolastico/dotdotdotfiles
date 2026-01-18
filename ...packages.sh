@@ -8,6 +8,9 @@
 # add homebrew to path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# install rosetta
+softwareupdate --install-rosetta
+
 brew_pkgs=(
     ## development ##
     visual-studio-code 
@@ -137,6 +140,10 @@ mas_pkgs=(
     #Eve
     #Protect
 )
+for i in "${mas_pkgs[@]}"
+do
+   mas install "$i"
+done
 
 ###-----------------###
 ### vscode packages ###
@@ -152,3 +159,10 @@ for i in "${vsc_pkgs[@]}"
 do
    code --install-extension $i
 done
+
+###-----------------------###
+### remove stock packages ###
+###-----------------------###
+
+sudo rm -rf /Applications/GarageBand.app 
+sudo rm -rf /Applications/iMovie.app  

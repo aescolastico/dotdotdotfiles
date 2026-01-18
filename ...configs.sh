@@ -1,26 +1,44 @@
 ###-------------###
 ### dock config ###
 ###-------------###
-script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-cd "$script_dir"
+cp ~/Library/Mobile\ Documents/com~apple~CloudDocs/Backups/configs/dock/com.apple.dock.plist "$HOME/Library/Preferences/com.apple.dock.plist"
 
-cp ./config_backups/com.apple.dock.plist "$HOME/Library/Preferences/com.apple.dock.plist" 
+# sym link didnt seem to work
+# rm ~/Library/Preferences/com.apple.dock.plist
+# ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Backups/configs/dock/com.apple.dock.plist ~/Library/Preferences/com.apple.dock.plist
 
 killall cfprefsd
 killall Dock
+
+###------------------###
+### logi ghub config ###
+###------------------###
+killall lghub_ui lghub_system_tray lghub_agent
+rm -f ~/Library/Application\ Support/LGHUB/settings.db
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Backups/configs/g-hub/settings.db ~/Library/Application\ Support/LGHUB/settings.db
+
+###------------###
+### btt config ###
+###------------###
+killall BetterSnapTool
+
+rm -rf ~/Library/Application\ Support/BetterSnapTool
+rm -f ~/Library/Preferences/com.hegenberg.BetterSnapTool.plist
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Backups/configs/btt/BetterSnapTool ~/Library/Application\ Support/BetterSnapTool
+ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Backups/configs/btt/com.hegenberg.BetterSnapTool.plist ~/Library/Preferences/com.hegenberg.BetterSnapTool.plist
 
 ###---------------###
 ### vscode config ###
 ###---------------###
 vscSettings=`cat <<EOF
 {
-
+    "editor.wordWrap": "on"
 }
 EOF
 `
-"${vscSettings}"
+
 settingsPath="$HOME/Library/Application Support/Code/User/settings.json"
-echo "${vscSettings}" >> ${settingsPath}
+echo "${vscSettings}" >> "${settingsPath}"
 
 ###------------###
 ### git config ###

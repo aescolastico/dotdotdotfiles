@@ -6,3 +6,4 @@ for file in ~/...{aliases,envs,functions,other}; do
 	fi
 done
 unset file
+. "$HOME/.cargo/env"

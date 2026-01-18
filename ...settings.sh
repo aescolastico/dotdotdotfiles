@@ -50,9 +50,6 @@ killall Finder
 # customize dock size 
 defaults write com.apple.dock tilesize -int 45
 
-# wipe all (default) app icons from the Dock
-defaults write com.apple.dock persistent-apps -array
-
 # enable autohide dock
 defaults write com.apple.dock autohide -bool true
 
@@ -89,6 +86,9 @@ killall Dock
 # killall SystemUIServer
 
 ## OS ##
+
+# disable natural scroll wheel
+defaults write -g com.apple.mouse.scaling -int 0
 
 # set keyboard shortcuts
 sudo defaults write -globalDomain NSUserKeyEquivalents -dict-add "Lock Screen" "@L"
