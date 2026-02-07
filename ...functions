@@ -60,6 +60,12 @@ fuckice ()
   gert --output ~/Desktop/evidence-of-republican-tyrany-and-domestic-terrorism/ --human-readable "$1"
 }
 
+fi_arch ()
+{
+  gert --output ~/Desktop/evidence-of-republican-tyrany-and-domestic-terrorism/ --human-readable --feed new -limit 1000 -s ICE_Watch 
+}
+
+
 nprj() {
   if [ -z "$1" ]; then
     echo "Please provide a repository URL."
@@ -152,4 +158,64 @@ git() {
   fi
 
   command git "$@"
+}
+mnp() {
+  cd /Volumes/media
+  pyprep
+  mnamer \
+  --media=movie \
+  --movie-api=tmdb \
+  --batch \
+  --recurse \
+  --movie-directory "/Volumes/media/movies/{name} ({year}) {tmdb-{id_tmdb}}" \
+  --movie-format "{name} ({year}) {tmdb-{id_tmdb}}{extension}" \
+  "/Volumes/media/pending" \
+  && find /Volumes/media/pending -type d -empty -delete
+}
+
+mqa() {
+  local root="/Volumes/media/movies"
+
+  # finds directories (movies) that either:
+  # - do not contain "{tmdb-...}" at all, or
+  # - contain the blank placeholder "{tmdb-}"
+  find "$root" -type d -print0 |
+  while IFS= read -r -d '' d; do
+    local base="${d##*/}"
+
+    # skip common noise dirs
+    case "$base" in
+      .git|.Trash|.Trashes|@eaDir|lost+found) continue ;;
+    esac
+
+    if [[ "$base" == *"{tmdb-}"* ]]; then
+      printf '%s\n' "$d"
+      continue
+    fi
+
+    if [[ "$base" != *"{tmdb-"* ]]; then
+      printf '%s\n' "$d"
+      continue
+    fi
+
+    if [[ ! "$base" =~ \{tmdb-[0-9]+\} ]]; then
+      printf '%s\n' "$d"
+      continue
+    fi
+  done
+  find "$root" -type d -print0 |
+  while IFS= read -r -d '' d; do
+    local base="${d##*/}"
+
+    case "$base" in
+      .git|.Trash|.Trashes|@eaDir|lost+found) continue ;;
+    esac
+
+    local file_count
+    file_count="$(find "$d" -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')"
+
+    if [[ "$file_count" -gt 1 ]]; then
+      printf '%s\n' "$d"
+    fi
+  done
 }

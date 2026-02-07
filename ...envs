@@ -12,3 +12,4 @@ export EMAIL='aesubs@icloud.com'
 export PATH=$PATH:$HOME/go/bin
 export IDF_TARGET=esp32c6
 export IDF_CCACHE_ENABLE=1
+#export VISUAL="code --wait"
